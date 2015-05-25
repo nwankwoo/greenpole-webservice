@@ -117,16 +117,16 @@ public interface ClientCompanyComponentService {
     
     /**
      * Processes request to set up an Initial Public Offer.
-     * @param ipo the initial public offer details for a client company
      * @param login the user's login details
      * @param authenticator the authenticator user meant to receive the
      * notification
+     * @param ipo the initial public offer details for a client company
      * @return response to the initial public offer request
      */
     @WebMethod
     @WebResult(name = "response")
-    public Response setupInitialPublicOffer_Request(@WebParam(name = "login", header = true) Login login, @WebParam(name = "initialpublicoffer") InitialPublicOffer ipo,
-            @WebParam(name = "authenticator") String authenticator);
+    public Response setupInitialPublicOffer_Request(@WebParam(name = "login", header = true) Login login, @WebParam(name = "authenticator") String authenticator,
+           @WebParam(name = "initialpublicoffer") InitialPublicOffer ipo);
     
     /**
      * Processes request to setup Initial public offer that has been saved to file with the notificationCode.
