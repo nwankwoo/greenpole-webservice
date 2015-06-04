@@ -184,4 +184,22 @@ public interface ClientCompanyComponentService {
     @WebResult(name = "response")
     public Response setupPrivatePlacement_Authorise(@WebParam(name = "login", header = true) Login login, @WebParam(name = "notificationCode") String notificationCode);
     
+    /**
+     * Request to query all available client companies in the system.
+     * @param login The user's login details
+     * @return Response to the create private placement request
+     */
+    @WebMethod
+    @WebResult(name = "response")
+    public Response queryAllClientCompanies_Request(@WebParam(name = "login", header = true) Login login);
+    
+    /**
+     * Request to query specific client company.
+     * @param login The user's login details
+     * @param clientCompanyId the client company id
+     * @return Response to the create private placement request
+     */
+    @WebMethod
+    @WebResult(name = "response")
+    public Response queryClientCompany_Request(@WebParam(name = "login", header = true) Login login, @WebParam(name = "clientCompanyId") int clientCompanyId);
 }
