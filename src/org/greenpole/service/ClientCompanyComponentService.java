@@ -201,5 +201,5 @@ public interface ClientCompanyComponentService {
      */
     @WebMethod
     @WebResult(name = "response")
-    public Response queryClientCompany_Request(@WebParam(name = "login", header = true) Login login, @WebParam(name = "clientCompanyId") int clientCompanyId);
+    public Response queryClientCompany_Single_Request(@WebParam(name = "login", header = true) Login login, @WebParam(name = "clientCompanyId") int clientCompanyId);
 }
