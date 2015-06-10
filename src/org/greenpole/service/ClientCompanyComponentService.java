@@ -202,4 +202,14 @@ public interface ClientCompanyComponentService {
     @WebMethod
     @WebResult(name = "response")
     public Response queryClientCompany_Single_Request(@WebParam(name = "login", header = true) Login login, @WebParam(name = "clientCompanyId") int clientCompanyId);
+    
+    /**
+     * Searches for a specified bond offer.
+     * @param login the user's login details
+     * @param bondOfferId bond offer id
+     * @return the response to the query bond offer request
+     */
+    @WebMethod
+    @WebResult(name = "response")
+    public Response queryBondOffer_Request(@WebParam(name = "login", header = true) Login login, @WebParam(name = "bondOfferId") int bondOfferId);
 }
