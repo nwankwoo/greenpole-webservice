@@ -404,4 +404,25 @@ public interface HolderComponentService {
     @WebMethod
     @WebResult(name = "response")
     public Response applyForBondOffer_Authorise(@WebParam(name = "login", header = true) Login login, @WebParam(name = "notificationCode") String notificationCode);
+    
+    /**
+     * Searches for all primary holders in the database, whether bond or shareholders.
+     * @param login the user's login details
+     * @param isShareholder whether the search is for shareholders or bond-holders
+     * @return the response to the query all holders request
+     */
+    @WebMethod
+    @WebResult(name = "response")
+    public Response queryAllHolders_Request(@WebParam(name = "login", header = true) Login login, @WebParam(name = "isShareholder") boolean isShareholder);
+    
+    /**
+     * Searches for a specified holder.
+     * @param login the user's login details
+     * @param holderId the holder's id
+     * @return the response to the query holder request
+     */
+    @WebMethod
+    @WebResult(name = "response")
+    public Response queryHolder_Single_Request(@WebParam(name = "login", header = true) Login login, @WebParam(name = "holderId") int holderId);
+    
 }
