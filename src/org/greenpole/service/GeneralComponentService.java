@@ -29,4 +29,14 @@ public interface GeneralComponentService {
     @WebMethod
     @WebResult(name = "response")
     public Response getReceiverNotifications_Request(@WebParam(name = "login", header = true) Login login);
+    
+    /**
+     * Request to reject notification.
+     * @param login the user's login details
+     * @param notificationCode the notification code
+     * @return response to the reject notification request
+     */
+    @WebMethod
+    @WebResult(name = "response")
+    public Response rejectNotification(@WebParam(name = "login", header = true) Login login, @WebParam(name = "notificationCode") String notificationCode);
 }
