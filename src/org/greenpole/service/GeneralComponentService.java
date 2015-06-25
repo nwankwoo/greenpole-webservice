@@ -10,6 +10,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import org.greenpole.entity.notification.NotificationWrapper;
 import org.greenpole.entity.response.Response;
 import org.greenpole.entity.security.Login;
 
@@ -34,9 +35,27 @@ public interface GeneralComponentService {
      * Request to reject notification.
      * @param login the user's login details
      * @param notificationCode the notification code
+     * @param rejectionReason reason for rejection
      * @return response to the reject notification request
      */
     @WebMethod
     @WebResult(name = "response")
-    public Response rejectNotification(@WebParam(name = "login", header = true) Login login, @WebParam(name = "notificationCode") String notificationCode);
+    public Response rejectNotification(@WebParam(name = "login", header = true) Login login, @WebParam(name = "notificationCode") String notificationCode, 
+            @WebParam(name = "rejectionReason") String rejectionReason);
+    
+    /**
+     * Request to invalidate a notification according to the specified notification code.
+     * @param login the user's login details
+     * @param notificationCode the notification code
+     * @return response to the invalidate notification request
+     */
+    public Response writeOffNotification(@WebParam(name = "login", header = true) Login login, @WebParam(name = "notificationCode") String notificationCode);
+    
+    /**
+     * Request to resend a notification that was rejected.
+     * @param login the user's login details
+     * @param wrapper the notification wrapper to resend
+     * @return response to the resend notification request
+     */
+    public Response resendNotification(@WebParam(name = "login", header = true) Login login, @WebParam(name = "wrapper") NotificationWrapper wrapper);
 }
